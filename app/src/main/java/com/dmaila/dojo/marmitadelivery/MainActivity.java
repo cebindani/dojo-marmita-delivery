@@ -1,5 +1,8 @@
 package com.dmaila.dojo.marmitadelivery;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
@@ -57,7 +60,20 @@ public class MainActivity extends AppCompatActivity {
                         "Mistura: " + mainMeal + "\n" +
                         "Acompanhamento: " + sideDish + "\n" +
                         "Observações: " + observationText;
-                Toast.makeText(MainActivity.this, orderToSend, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, orderToSend, Toast.LENGTH_SHORT).show();
+
+
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                String mailto = "mailto:pedidos@androidmarmitas.com.br" +
+                        "?subject=" + Uri.encode("Pedido: " + name) +
+                        "&body=" + Uri.encode(orderToSend);
+                emailIntent.setData(Uri.parse(mailto));
+
+                try {
+                    startActivity(emailIntent);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(MainActivity.this, "Não é possível enviar email!", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
