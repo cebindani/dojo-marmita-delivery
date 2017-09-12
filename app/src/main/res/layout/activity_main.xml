@@ -24,6 +24,7 @@
         android:text="Tamanho:" />
 
     <RadioGroup
+        android:id="@+id/meal_size_radiogroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -80,6 +81,7 @@
         android:text="Observações:" />
 
     <EditText
+        android:id="@+id/observation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp" />
