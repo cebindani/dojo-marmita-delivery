@@ -69,7 +69,12 @@ public class MainActivity extends AppCompatActivity {
                         "&body=" + Uri.encode(orderToSend);
                 emailIntent.setData(Uri.parse(mailto));
 
+                //Abre tela de recibo
+                Intent voucherIntent = new Intent(MainActivity.this, VoucherActivity.class);
+                voucherIntent.putExtra("ORDER_SENT", orderToSend);
+
                 try {
+                    startActivity(voucherIntent);
                     startActivity(emailIntent);
                 } catch (ActivityNotFoundException e) {
                     Toast.makeText(MainActivity.this, "Não é possível enviar email!", Toast.LENGTH_SHORT).show();
