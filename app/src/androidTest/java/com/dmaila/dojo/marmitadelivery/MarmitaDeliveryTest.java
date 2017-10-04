@@ -60,8 +60,8 @@ public class MarmitaDeliveryTest {
 
     @Test
     public void tamanhoPSelecionadoDefault() {
-        onView(withId(R.id.medium_size)).check(matches(isChecked()));
-        onView(withId(R.id.small_size)).check(matches(isNotChecked()));
+        onView(withId(R.id.small_size)).check(matches(isChecked()));
+        onView(withId(R.id.medium_size)).check(matches(isNotChecked()));
         onView(withId(R.id.large_size)).check(matches(isNotChecked()));
 
     }
